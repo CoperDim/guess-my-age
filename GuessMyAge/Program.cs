@@ -4,12 +4,12 @@ string userName = Environment.UserName;
 Console.WriteLine("Bienvenue " + userName);
 
 string age = "21";
-string? userInput;
+string userInput = "";
 
-do
+for (int counter = 1; userInput != age; counter++)
 {
+    Console.WriteLine("Essai n° " + counter);
+    Console.WriteLine("Quel est mon age ?");
     userInput = Console.ReadLine();
-
 }
-while (userInput != age);
 
