@@ -9,12 +9,16 @@ namespace GuessMyAge.Business.Services
             Game currentGame = new Game(person, Parameters.MaxTurns);
 
             string questionLabel = "Quel est mon age ?";
+            Console.WriteLine($"Je m'appelle {person.Name}");
+            Console.WriteLine(person.Description);
+            Console.WriteLine("--------------------------------------------------");
+
             for (currentGame.CurrentTurn = 0; currentGame.CurrentTurn < currentGame.MaxTurn && currentGame.GameState != GameState.IsEqual && currentGame.GameState != GameState.isCancelled; currentGame.CurrentTurn++)
             {
-                Console.WriteLine($"Il vous reste {currentGame.MaxTurn - currentGame.CurrentTurn} essai(s)");
-
                 Console.WriteLine(questionLabel);
-
+                Console.WriteLine("--------------------------------------------------");
+                Console.WriteLine($"Il vous reste {currentGame.MaxTurn - currentGame.CurrentTurn} essai(s)");
+                Console.WriteLine($"Réponse n° {currentGame.CurrentTurn + 1} : ");
                 try
                 {
                     currentGame.InputUser = Console.ReadLine();
