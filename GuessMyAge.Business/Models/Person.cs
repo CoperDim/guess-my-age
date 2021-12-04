@@ -1,0 +1,23 @@
+﻿using GuessMyAge.Business.Models;
+
+namespace GuessMyAge.Business
+{
+    public class Person
+    {
+        public int Age { get; private set; }
+        public string Description { get; private set; }
+        public string Name { get; private set; }
+        public string Job { get; private set; }
+
+        public Genre Genre { get; private set; }
+
+        public Person(int age, string description, string name, string job, Genre genre)
+        {
+            Age = age;
+            Description = description;
+            Name = name;
+            Job = job;
+            Genre = genre;
+        }
+    }
+}
