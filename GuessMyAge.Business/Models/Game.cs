@@ -19,10 +19,8 @@ namespace GuessMyAge
             Person = person;
         }
 
-        public void ValidateInputNumber(string input)
+        public void ValidateInputNumber()
         {
-            InputUser = input;
-
             if (InputUser == "q")
             {
                 GameState = GameState.isCancelled;

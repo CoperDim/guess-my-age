@@ -1,6 +1,6 @@
 ﻿using GuessMyAge.Business.Models;
 
-namespace GuessMyAge.Business
+namespace GuessMyAge.Business.Models
 {
     public class Person
     {
@@ -11,7 +11,7 @@ namespace GuessMyAge.Business
 
         public Genre Genre { get; private set; }
 
-        public Person(int age, string description, string name, string job, Genre genre)
+        public Person(int age, string name, string job, Genre genre, string description)
         {
             Age = age;
             Description = description;
