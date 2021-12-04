@@ -7,12 +7,14 @@ Console.WriteLine($"Bienvenue {Environment.UserName}");
 
 IPersonService personService = new PersonService();
 IGameService gameService = new GameService();
+List<Game> games = new List<Game>();
 
 var persons = personService.GetAll();
 
 foreach (var person in persons)
 {
     var game = gameService.Run(person);
+    games.Add(game);
 
     if (game.GameState == GameState.isCancelled)
         break;
@@ -37,5 +39,4 @@ foreach (var person in persons)
     if (continueGame == "q")
         break;
 }
-
-Console.WriteLine($"Tapez q pour quitter, sinon repartons pour une nouvelle partie...");
+Console.WriteLine($"Victoire {games.Count(x => x.GameState == GameState.IsEqual)} / {games.Count()} ");
