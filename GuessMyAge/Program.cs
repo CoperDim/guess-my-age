@@ -2,23 +2,13 @@
 string userName = Environment.UserName;
 
 Console.WriteLine("Bienvenue " + userName);
-int currentMonth = DateTime.Now.Month;
 
+string age = "21";
+string? userInput;
 
-if (currentMonth <= 3)
+do
 {
-    Console.WriteLine("Premier trimestre");
-}
-else if (currentMonth <= 6)
-{
-    Console.WriteLine("Second trimestre");
+    userInput = Console.ReadLine();
 
 }
-else if (currentMonth <= 9)
-{
-    Console.WriteLine("Troisième trimestre");
-}
-else
-{
-    Console.WriteLine("Dernier trimestre");
-}
+while (userInput != age);
