@@ -1,17 +1,54 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine($"Bienvenue {Environment.UserName}");
 
-string age = "21";
-string userInput = "";
-string questionLabel = "Quel est mon age ?";
+string? userInput = null;
 
-Console.WriteLine(questionLabel);
-userInput = Console.ReadLine();
-
-for (int counter = 9; userInput != age && counter > 0; counter--)
+do
 {
-    Console.WriteLine($"Il vous reste {counter} essai(s)");
-    Console.WriteLine(questionLabel);
-    userInput = Console.ReadLine();
-}
+    int age = new Random().Next(1, 120);
 
+    string questionLabel = "Quel est mon age ?";
+    bool hasWin = false;
+
+    for (int counter = 9; userInput != age.ToString() && counter >= 0; counter--)
+    {
+        Console.WriteLine(questionLabel);
+        userInput = Console.ReadLine();
+
+        if (userInput == "q") break;
+
+        try
+        {
+            int userInputNumber = int.Parse(userInput);
+            if (userInputNumber > age)
+            {
+                Console.WriteLine("Vous êtes trop haut !");
+                Console.WriteLine($"Il vous reste {counter} essai(s)");
+            }
+            else if (userInputNumber < age)
+            {
+                Console.WriteLine("Vous êtes trop bas !");
+                Console.WriteLine($"Il vous reste {counter} essai(s)");
+            }
+            else
+            {
+                hasWin = true;
+                break;
+            }
+        }
+        catch
+        {
+            Console.WriteLine($"La valeur {userInput} est incorrecte");
+            Console.WriteLine($"Il vous reste {counter} essai(s)");
+        }
+    }
+    if (hasWin)
+    {
+        Console.WriteLine("Bravo, vous avez gagné !!");
+    }
+    else
+    {
+        Console.WriteLine("Désolé, peut être la prochaine fois !!");
+    }
+}
+while (string.IsNullOrEmpty(userInput) || userInput != "q");
