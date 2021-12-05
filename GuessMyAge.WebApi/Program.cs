@@ -14,7 +14,7 @@ builder.Services.AddDbContext<GuessMyAgeDbContext>(
     options =>
         options.UseSqlite(x => x.MigrationsAssembly(typeof(GuessMyAgeDbContext).Assembly.FullName)));
 
-builder.Services.Inject();
+builder.Services.Inject().InjectRepositories();
 
 var app = builder.Build();
 
