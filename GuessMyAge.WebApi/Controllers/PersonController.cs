@@ -9,16 +9,16 @@ namespace GuessMyAge.WebApi.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        private readonly IPersonService personService;
-        public PersonController()
+        private readonly IPersonService _personService;
+        public PersonController(IPersonService personService)
         {
-            personService = new PersonService();
+            _personService = personService;
         }
 
         [HttpGet("")]
         public IEnumerable<Person> GetAll()
         {
-            return personService.GetAll();
+            return _personService.GetAll();
         }
     }
 }
