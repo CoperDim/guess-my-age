@@ -2,6 +2,7 @@
 using GuessMyAge.Business.Services;
 using GuessMyAge.Database;
 using GuessMyAge.Database.Entities;
+using GuessMyAge.Database.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,25 +12,30 @@ namespace GuessMyAge.WebApi.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        private readonly IPersonService _personService;
-        private readonly GuessMyAgeDbContext _context;
-        public PersonController(IPersonService personService, GuessMyAgeDbContext context)
+        private readonly IPersonRepository _personRepository;      
+        public PersonController(IPersonRepository personRepository)
         {
-            _personService = personService;
-            _context = context;
+            _personRepository = personRepository;
         }
 
         [HttpGet("")]
         public IEnumerable<PersonDatabaseEntity> GetAll()
         {
-            return _context.Persons.ToList();
+            return _personRepository.GetAll();
         }
 
         [HttpPost("")]
         public IActionResult Create([FromBody] PersonDatabaseEntity person)
         {
-            _context.Persons.Add(person);
-            _context.SaveChanges();
+            _personRepository.Create(person);
+
+            return Ok();
+        }
+
+        [HttpPut("")]
+        public IActionResult Update([FromBody] PersonDatabaseEntity person)
+        {
+            _personRepository.Update(person);
 
             return Ok();
         }
