@@ -7,7 +7,7 @@ namespace GuessMyAge.Business
     {
         public static IServiceCollection Inject(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<IPersonService, PersonService>();
+            serviceCollection.AddTransient<IPersonService, PersonService>();
 
             return serviceCollection;
         }
