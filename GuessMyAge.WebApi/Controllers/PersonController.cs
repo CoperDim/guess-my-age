@@ -20,5 +20,13 @@ namespace GuessMyAge.WebApi.Controllers
         {
             return _personService.GetAll();
         }
+
+        [HttpPost("")]
+        public IActionResult Create([FromBody] Person person)
+        {
+            _personService.AddPerson(person);
+
+            return Ok();
+        }
     }
 }
