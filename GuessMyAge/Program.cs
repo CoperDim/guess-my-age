@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using GuessMyAge;
-using GuessMyAge.Business.Models;
-using GuessMyAge.Business.Services;
+using GuessMyAge.Models;
+using GuessMyAge.Services;
 
 Console.WriteLine($"Bienvenue {Environment.UserName}");
 

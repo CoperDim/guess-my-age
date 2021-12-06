@@ -1,4 +1,4 @@
-﻿namespace GuessMyAge.Business.Models
+﻿namespace GuessMyAge.Models
 {
     public static class Parameters
     {

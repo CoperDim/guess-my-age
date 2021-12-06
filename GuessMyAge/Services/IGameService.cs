@@ -1,6 +1,6 @@
-﻿using GuessMyAge.Business.Models;
+﻿using GuessMyAge.Models;
 
-namespace GuessMyAge.Business.Services
+namespace GuessMyAge.Services
 {
     public interface IGameService
     {

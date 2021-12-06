@@ -1,6 +1,4 @@
-﻿using GuessMyAge.Business.Models;
-
-namespace GuessMyAge.Business.Models
+﻿namespace GuessMyAge.Models
 {
     public class Person
     {
