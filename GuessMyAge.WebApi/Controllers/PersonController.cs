@@ -1,9 +1,5 @@
-﻿using GuessMyAge.Business.Models;
-using GuessMyAge.Business.Services;
-using GuessMyAge.Database;
-using GuessMyAge.Database.Entities;
+﻿using GuessMyAge.Database.Entities;
 using GuessMyAge.Database.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GuessMyAge.WebApi.Controllers

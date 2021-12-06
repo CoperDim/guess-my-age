@@ -1,5 +1,4 @@
-﻿using GuessMyAge.Business.Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace GuessMyAge.Business
 {
@@ -7,7 +6,6 @@ namespace GuessMyAge.Business
     {
         public static IServiceCollection Inject(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<IPersonService, PersonService>();
 
             return serviceCollection;
         }
