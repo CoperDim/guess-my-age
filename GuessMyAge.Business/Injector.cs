@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GuessMyAge.Business.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GuessMyAge.Business
 {
@@ -6,6 +7,7 @@ namespace GuessMyAge.Business
     {
         public static IServiceCollection Inject(this IServiceCollection serviceCollection)
         {
+            serviceCollection.AddTransient<IPersonService, PersonService>();
 
             return serviceCollection;
         }
