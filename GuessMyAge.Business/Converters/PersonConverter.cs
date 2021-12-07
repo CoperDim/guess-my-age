@@ -13,5 +13,25 @@ namespace GuessMyAge.Business.Converters
                                 databaseEntity.Genre, 
                                 databaseEntity.Description);
         }
+
+        public static PersonDatabaseEntity ToDatabaseEntity(this Person model)
+        {
+            var databaseEntity = new PersonDatabaseEntity();
+            databaseEntity.BirthDate = model.BirthDate;
+            databaseEntity.Name = model.Name;
+            databaseEntity.Genre = model.Genre.ToString();
+            databaseEntity.Description = model.Description;
+            databaseEntity.Games = new List<GameDatabaseEntity>();
+
+            return databaseEntity;
+        }
+
+        public static IEnumerable<Person> ToModels(this IEnumerable<PersonDatabaseEntity> entities)
+        {
+            foreach (var entity in entities)
+            {
+               yield return ToPerson(entity);
+            }
+        }
     }
 }
