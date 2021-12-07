@@ -2,14 +2,16 @@
 {
     public class Person
     {
-        public int Id { get; private set; }
-        public int Age { get; private set; }
-        public string Description { get; private set; }
-        public string Name { get; private set; }
-        public string Job { get; private set; }
-        public DateTime BirthDate { get; private set; }
+        public int Id { get; set; }
+        public int Age { get; set; }
+        public string Description { get; set; }
+        public string Name { get; set; }
+        public string Job { get; set; }
+        public DateTime BirthDate { get; set; }
 
-        public Genre Genre { get; private set; }
+        public Genre Genre { get; set; }
+
+        public Person() { }
 
         public Person(int age, string name, string job, Genre genre, string description)
         {

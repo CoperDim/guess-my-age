@@ -11,13 +11,15 @@ namespace GuessMyAge.Business.Converters
                                 databaseEntity.Name, 
                                 databaseEntity.Job, 
                                 databaseEntity.Genre, 
-                                databaseEntity.Description);
+                                databaseEntity.Description, 
+                                databaseEntity.Id);
         }
 
         public static PersonDatabaseEntity ToDatabaseEntity(this Person model)
         {
             var databaseEntity = new PersonDatabaseEntity();
             databaseEntity.BirthDate = model.BirthDate;
+            databaseEntity.Job = model.Job;
             databaseEntity.Name = model.Name;
             databaseEntity.Genre = model.Genre.ToString();
             databaseEntity.Description = model.Description;
