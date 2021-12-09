@@ -21,4 +21,10 @@
     <ProjectReference Include="..\GuessMyAge.Models\GuessMyAge.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="GuessMyAgeDB.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

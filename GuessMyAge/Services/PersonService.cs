@@ -14,6 +14,10 @@ namespace GuessMyAge.Services
             };
         public IEnumerable<Person> GetAll()
         {
+            using (var http = new HttpClient())
+            {
+
+            }
             return persons;
         }
 
