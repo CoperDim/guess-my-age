@@ -21,9 +21,10 @@ namespace GuessMyAge.Services
                 var result = await http.GetAsync("/api/Person");
                 var response = await result.Content.ReadAsStringAsync();
                 var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
-                IEnumerable<Person> persons = JsonSerializer.Deserialize<IEnumerable<Person>>(response, options);
-                return persons;
+                IEnumerable<Person> values = JsonSerializer.Deserialize<IEnumerable<Person>>(response, options);
+                return values;
             }
+
         }
 
         public void AddPerson(Person person)
