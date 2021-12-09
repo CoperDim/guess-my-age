@@ -4,7 +4,7 @@ namespace GuessMyAge.Services
 {
     public interface IPersonService
     {
-        IEnumerable<Person> GetAll();
+        Task<IEnumerable<Person>> GetAll();
 
         void AddPerson(Person person);
     }

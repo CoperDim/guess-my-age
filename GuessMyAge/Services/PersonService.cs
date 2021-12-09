@@ -1,4 +1,5 @@
 ﻿using GuessMyAge.Models;
+using System.Text.Json;
 
 namespace GuessMyAge.Services
 {
@@ -12,13 +13,18 @@ namespace GuessMyAge.Services
                 new Person(57, "Brad Pitt", "Réalisateur", Genre.Man, "Acteur américain, a joué dans Fight Club, Benjamin Button"),
                 new Person(78, "Catherine Deneuve", "Réalisateur", Genre.Woman, "Actrice français dont les films les plus célèbres sont Les Parapluies de Cherbourg, Belle de jour, Le Dernier Métro ainsi qu'Indochine.")
             };
-        public IEnumerable<Person> GetAll()
+        public async Task<IEnumerable<Person>> GetAll()
         {
             using (var http = new HttpClient())
             {
-
+                http.BaseAddress = new Uri("https://localhost:5001");
+                var result = await http.GetAsync("/api/Person");
+                var response = await result.Content.ReadAsStringAsync();
+                var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
+                IEnumerable<Person> values = JsonSerializer.Deserialize<IEnumerable<Person>>(response, options);
+                return values;
             }
-            return persons;
+
         }
 
         public void AddPerson(Person person)
