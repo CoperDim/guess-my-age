@@ -8,7 +8,7 @@ IPersonService personService = new PersonService();
 IGameService gameService = new GameService();
 List<Game> games = new List<Game>();
 
-var persons = personService.GetAll();
+var persons = await personService.GetAll();
 
 foreach (var person in persons)
 {
