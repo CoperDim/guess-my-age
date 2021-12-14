@@ -5,7 +5,6 @@ using GuessMyAge.Business.Services;
 
 Console.WriteLine($"Bienvenue {Environment.UserName}");
 
-<<<<<<< HEAD
 IPersonService personService = new PersonService();
 IGameService gameService = new GameService();
 List<Game> games = new List<Game>();
@@ -41,22 +40,4 @@ foreach (var person in persons)
         break;
 }
 Console.WriteLine($"Victoire {games.Count(x => x.GameState == GameState.IsEqual)} / {games.Count()} ");
-=======
-bool continueGame = true;
-IPersonService personService = new PersonService();
-IGameService gameService = new GameService();
 
-var persons = personService.GetAll();
-
-
-foreach (Person person in persons)
-{
-    Console.WriteLine(Parameters.MaxTurns);
-
-    Console.WriteLine($"Je m'appelle {person.Name} et je suis {person.Job}... ");
-    var game = gameService.Run(person);
-    if (game.GameState == GameState.isCancelled)
-        return;
-
-}
->>>>>>> Partie1-Exercice9-Models
