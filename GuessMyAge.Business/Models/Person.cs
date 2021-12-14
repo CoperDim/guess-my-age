@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿using GuessMyAge.Business.Models;
 
 namespace GuessMyAge.Business.Models
+=======
+﻿namespace GuessMyAge.Business.Models
+>>>>>>> Partie1-Exercice9-Models
 {
     public class Person
     {

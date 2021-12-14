@@ -2,6 +2,8 @@
 {
     public static class Parameters
     {
-        public const int MaxTurns = 5;
+        public static string UserName = Environment.UserName;
+
+        public const int MaxTurns = 10;
     }
 }

@@ -1,4 +1,12 @@
 ﻿using GuessMyAge.Business.Models;
+<<<<<<< HEAD
+=======
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+>>>>>>> Partie1-Exercice9-Models
 
 namespace GuessMyAge.Business.Services
 {
@@ -9,6 +17,7 @@ namespace GuessMyAge.Business.Services
             Game currentGame = new Game(person, Parameters.MaxTurns);
 
             string questionLabel = "Quel est mon age ?";
+<<<<<<< HEAD
             Console.WriteLine($"Je m'appelle {person.Name}");
             Console.WriteLine(person.Description);
             Console.WriteLine("--------------------------------------------------");
@@ -47,3 +56,39 @@ namespace GuessMyAge.Business.Services
         }
     }
 }
+=======
+
+            for (currentGame.CurrentTurn = 0; currentGame.CurrentTurn < currentGame.MaxTurn; currentGame.CurrentTurn++)
+            {
+                Console.WriteLine(questionLabel);
+                Console.WriteLine($"Il vous reste {currentGame.MaxTurn - currentGame.CurrentTurn} tour(s)");
+                string inputUser = Console.ReadLine();
+
+                currentGame.ValidateInputNumber(inputUser);
+
+                switch (currentGame.GameState)
+                {
+                    case GameState.IsUp:
+                        Console.WriteLine("C'est trop haut");
+                        break;
+                    case GameState.IsDown:
+                        Console.WriteLine("C'est trop bas");
+                        break;
+                    case GameState.IsEqual:
+                        Console.WriteLine("Bravo");
+                        return currentGame;
+                    case GameState.isCancelled:
+                        Console.WriteLine("Au revoir");
+                        return currentGame;
+                    case GameState.IsUnValidOrNull:
+                        Console.WriteLine($"La valeur {inputUser} n'est pas valide");
+                        break;
+                }
+
+            }
+            return currentGame;
+
+        }
+    }
+}
+>>>>>>> Partie1-Exercice9-Models
