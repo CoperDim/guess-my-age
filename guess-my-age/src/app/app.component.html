@@ -1,2 +1,8 @@
-<h1 class="title">Hello world</h1>
-<p class="description">Ceci est un site angular</p>
+<div class="centered">
+  <h1 class="title">Bienvenue</h1>
+  <div class="form-group">
+    <label>Votre nom</label>
+    <input type="text" class="form-control" required [(ngModel)]="userName" />
+  </div>
+  <p>{{userName}}</p>
+</div>
