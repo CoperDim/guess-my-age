@@ -17,7 +17,7 @@ namespace GuessMyAge.Services
         {
             using (var http = new HttpClient())
             {
-                http.BaseAddress = new Uri("https://localhost:5001");
+                http.BaseAddress = new Uri("https://localhost:7192");
                 var result = await http.GetAsync("/api/Person");
                 var response = await result.Content.ReadAsStringAsync();
                 var options = new JsonSerializerOptions() { PropertyNameCaseInsensitive = true };
