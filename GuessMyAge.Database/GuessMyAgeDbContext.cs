@@ -16,7 +16,7 @@ namespace GuessMyAge.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=c:\\Datas\\GuessMyAgeDB.db;");
+            optionsBuilder.UseSqlite("Data Source=/home/barry/guessmyage/GuessMyAgeDB.db;");
         }
 
         public GuessMyAgeDbContext(DbContextOptions<GuessMyAgeDbContext> options)
