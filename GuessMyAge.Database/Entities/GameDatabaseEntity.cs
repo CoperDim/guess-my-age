@@ -18,5 +18,6 @@ namespace GuessMyAge.Database.Entities
 
         [ForeignKey("UserName")]
         public PlayerDatabaseEntity Player { get; set; }
+        
     }
 }

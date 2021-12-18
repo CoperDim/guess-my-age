@@ -3,11 +3,7 @@ using GuessMyAge.Database;
 using GuessMyAge.Database.Entities;
 using GuessMyAge.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace GuessMyAge.Business.Services
 {
