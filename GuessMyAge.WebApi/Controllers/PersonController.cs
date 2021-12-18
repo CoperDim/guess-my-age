@@ -10,8 +10,8 @@ namespace GuessMyAge.WebApi.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        private readonly IPersonService _personService;      
-        public PersonController(IPersonService personService)
+        private readonly IPersonService _personService;
+        public PersonController(IPersonService personService, IGameService gameService )
         {
             _personService = personService;
         }
@@ -26,7 +26,6 @@ namespace GuessMyAge.WebApi.Controllers
         public IActionResult Create([FromBody] Person person)
         {
             _personService.Create(person);
-
             return Ok();
         }
 

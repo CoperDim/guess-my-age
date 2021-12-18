@@ -8,6 +8,7 @@ namespace GuessMyAge.Database
         public static IServiceCollection InjectRepositories(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped<IPersonRepository, PersonRepository>();
+            serviceCollection.AddScoped<IGameRepository, GameRepository>();
 
             return serviceCollection;
         }
