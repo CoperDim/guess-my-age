@@ -10,10 +10,19 @@
 
         public GameState GameState { get; set; }
 
-        public Game(Person person, int maxTurn)
+        public Game(DateTime start, Person person, int maxTurn)
         {
             MaxTurn = maxTurn;
             Person = person;
+        }
+
+        public Game(DateTime start, DateTime? end, int personId, string userName, int id)
+        {
+            this.start = start;
+            this.end = end;
+            this.personId = personId;
+            this.userName = userName;
+            this.id = id;
         }
 
         public void ValidateInputNumber()
@@ -56,6 +65,11 @@
         }
 
         private int? _inputNumber;
+        private DateTime start;
+        private DateTime? end;
+        private int personId;
+        private string userName;
+        private int id;
 
         public int? InputNumber
         {
@@ -64,5 +78,10 @@
                 return _inputNumber;
             }
         }
+
+        public DateTime Start { get; set; }
+        public DateTime? End { get; set; }
+        public int PersonId { get; set; }
+        public object UserName { get; set; }
     }
 }
