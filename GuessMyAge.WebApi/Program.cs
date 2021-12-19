@@ -1,4 +1,5 @@
 using GuessMyAge.Business;
+using GuessMyAge.Business.Services;
 using GuessMyAge.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,8 @@ builder.Services.AddDbContext<GuessMyAgeDbContext>(
         options.UseSqlite(x => x.MigrationsAssembly(typeof(GuessMyAgeDbContext).Assembly.FullName)));
 
 builder.Services.Inject().InjectRepositories();
-
+// Tu avais oublié cette ligne pour que ton service fonctionne
+builder.Services.AddScoped<IGameService, GameService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

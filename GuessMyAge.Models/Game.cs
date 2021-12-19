@@ -6,10 +6,22 @@
 
         public int CurrentTurn { get; set; }
 
+
+        public DateTime Start { get; set; }
+        
+        public DateTime? End { get; set; }
+
+        public string UserName { get; set; }
         public int MaxTurn { get; set; }
 
         public GameState GameState { get; set; }
 
+
+
+        public Game()
+        {
+            
+        }
         public Game(Person person, int maxTurn)
         {
             MaxTurn = maxTurn;

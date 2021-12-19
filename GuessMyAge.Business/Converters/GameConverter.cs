@@ -7,18 +7,26 @@ namespace GuessMyAge.Business.Converters
     {
         public static Game ToGame(this GameDatabaseEntity databaseEntity)
         {
-            return new Game(
-                databaseEntity.ToGame().Person,
-                databaseEntity.ToGame().MaxTurn);
+            var game =  new Game();
+            game.End = databaseEntity.End;
+            game.Start = databaseEntity.Start;
+            game.UserName = databaseEntity.UserName;
+
+            return game;
         }
 
         public static GameDatabaseEntity ToDatabaseEntity(this Game model)
         {
             var databaseEntity = new GameDatabaseEntity();
-            databaseEntity.Start = model.ToDatabaseEntity().Start;
-            databaseEntity.End = model.ToDatabaseEntity().End;
-            databaseEntity.PersonId = model.ToDatabaseEntity().PersonId;
-            databaseEntity.UserName = model.ToDatabaseEntity().UserName.ToString();
+            databaseEntity.Start = model.Start;
+            databaseEntity.End = model.End;
+            databaseEntity.UserName = model.UserName;
+            databaseEntity.PersonId = model.Person.Id;
+            databaseEntity.UserName = model.UserName;
+            databaseEntity.Player = new PlayerDatabaseEntity
+            {
+                UserName = model.UserName
+            };
 
             return databaseEntity;
         }
