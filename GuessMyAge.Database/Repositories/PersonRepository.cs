@@ -8,15 +8,14 @@ using System.Threading.Tasks;
 
 namespace GuessMyAge.Database.Repositories
 {
-    public class PersonRepository : IPersonRepository
+    // On hérite de notre classe de base BaseRepository
+    public class PersonRepository : BaseRepository<PersonDatabaseEntity>, IPersonRepository
     {
-        private readonly GuessMyAgeDbContext _dbContext;
-
-        private readonly DbSet<PersonDatabaseEntity> _dbSet;
-        public PersonRepository(GuessMyAgeDbContext context)
+        // Regarde le nouveau constructeur qui fait un base pour construire la classe de base avec le contexte
+        public PersonRepository(GuessMyAgeDbContext context) : 
+            base(context)
         {
-            _dbContext = context;
-            _dbSet = _dbContext.Persons;
+            // Comme on assigne le dbSet et context dans la classe de base, on n'en n'a plus besoin ici
         }
         public void Create(PersonDatabaseEntity person)
         {
